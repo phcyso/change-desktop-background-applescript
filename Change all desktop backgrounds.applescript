@@ -1,9 +1,9 @@
 tell application "System Events"
-	set theDesktops to a reference to every desktop
+	set allDesktops to a reference to every desktop
+	repeat with aDesktop in allDesktops
+		tell application "System Events"
+			set currentInterval to change interval of aDesktop
+			set change interval of aDesktop to currentInterval
+		end tell
+	end repeat
 end tell
-repeat with aDesktop in theDesktops
-	tell application "System Events"
-		set rotinterval to change interval of aDesktop
-		set change interval of aDesktop to rotinterval
-	end tell
-end repeat
